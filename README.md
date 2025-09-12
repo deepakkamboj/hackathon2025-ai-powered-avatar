@@ -115,7 +115,7 @@ Based on the actual implementation, here's our tech stack:
 1. **Clone the repository**:
 
 ```bash
-git clone https://github.com/deepakkamboj/avatar-connect.git
+git clone https://github.com/deepakkamboj/hackathon2025-ai-powered-avatar.git
 cd avatar-connect
 ```
 
@@ -300,7 +300,7 @@ const providers = {
 - **Order Cancellation**: Cancel existing orders with confirmation
 - **Company Information**: CoffeeCorp details and services
 - **Weather API**: Current weather conditions
-- **Developer Info**: About Deepak Kamboj and project details
+- **Developer Info**: About Developer and project details
 
 ### 📡 WebRTC & Media APIs
 
@@ -468,6 +468,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built for Microsoft Hackathon 2025 by Deepak Kamboj**
+**Built for Microsoft Hackathon 2025**
 
 _Revolutionizing customer engagement through AI-powered avatars and intelligent conversation workflows._
