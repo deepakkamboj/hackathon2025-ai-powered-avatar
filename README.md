@@ -1,783 +1,473 @@
-# AvatarConnect: Elevating Customer Engagement with Lifelike AI Experiences - Hackathon Specification
+# AvatarConnect: Revolutionizing Customer Experience with AI-Powered Avatars
 
-## Title
+<img src="https://github.com/agmmnn/streaming-avatar-nextjs-starter/assets/16024979/ba6173db-2d12-4c04-a269-19d3c3e5d0a7" height="60"/>
 
-Delivering Humanlike Interactions Through AI-Powered Avatars
+## 🎯 Hackathon 2025 Project
 
-## Tagline
+**Delivering Humanlike Interactions Through AI-Powered Avatars**
 
-Revolutionizing Customer Experience with Lifelike, Interactive AI Avatars
+Transform customer engagement with customizable avatars, real-time expressive speech, and automated agentic workflows. This project integrates Azure TTS Avatar, AI SDK with multiple providers, and intelligent coffee ordering system to deliver personalized, accessible, and memorable customer experiences.
 
-## Keywords
+## 🚀 Features
 
-Azure TTS Avatar, Azure OpenAI, Agentic Architecture, Customer Experience, Multimodal AI, Real-time Interaction, Accessibility, Sentiment Analysis, Coffee Shop, Booth Engagement
+### ✅ Implemented
 
-## Description
+- **🎭 AI Avatar Interface**: Lifelike avatar with Azure TTS integration and natural speech
+- **🗣️ Multi-modal Interaction**: Voice input, text chat, and avatar responses
+- **🤖 Agentic Workflows**: Intelligent tool selection and function calling
+- **☕ Coffee Ordering System**: Complete CoffeeCorp integration with order management
+- **💾 Persistent Storage**: SQLite database for order history and session management
+- **🎨 Modern UI**: shadcn/ui components with dark/light theme support
+- **📱 Responsive Design**: Mobile-first approach with Tailwind CSS
+- **🔄 Real-time Updates**: Continuous speech recognition and seamless interactions
 
-Transform customer engagement with customizable avatars, real-time expressive speech, and automated video generation. Integrates Azure TTS Avatar, Azure OpenAI, and agentic workflows to deliver personalized, accessible, and memorable experiences for every visitor. Avatars answer questions, provide tailored information, and create lasting impressions—especially in high-traffic environments like coffee shop booths.
+### 🔧 Technical Stack
 
-## Executive Challenge
+- **Frontend**: Next.js 15, React 18, TypeScript
+- **UI/UX**: shadcn/ui, Tailwind CSS, Framer Motion
+- **State Management**: Jotai atomic state management
+- **AI Integration**: Vercel AI SDK with multiple providers
+- **Avatar Service**: Azure Speech API with Video Avatar
+- **Database**: SQLite with sqlite3 for persistent storage
+- **Speech Services**: Azure Cognitive Services (STT/TTS)
 
-**Executive Challenge: Hack for Customer Experience through AI**
-
-Demonstrate how AI avatars can revolutionize customer engagement, accessibility, and personalization in real-world business settings.
-
-## Problem or Opportunity Statement
-
-It's hard to give every booth visitor personalized attention. Our lifelike AI avatars deliver dynamic, tailored interactions and answers, transforming customer engagement and accessibility for all.
-
-## Topic Challenges
-
-- AI for Customer Service
-- Accessibility & Inclusion
-- Real-time Multimodal Interaction
-- Agentic Workflows & Autonomous Agents
-- Azure AI Integration
-
-## Project Description
-
-Revolutionizing Customer Experience: Transforming customer engagement with Azure TTS Avatar, Azure OpenAI, and Agentic Architecture. This project features lifelike, customizable avatars with diverse looks and voices, automated video generation via API (including batch support), and real-time, expressive speech with adjustable styles and emotions. Integration is simple and works seamlessly with other Azure services, offering pay-as-you-go pricing and accessibility improvements for users with disabilities.
-
-Key benefits include:
-
-- Personalized, dynamic interaction for every booth visitor—even during peak times
-- Unique, engaging experiences that differentiate your coffee shop from competitors
-- Tangible, interactive demonstration of AI solving real-world problems
-- Avatars answer a wide range of questions about products and services, providing tailored information
-- The novelty and interactivity of conversing with an AI avatar leaves a lasting impression
-
-Refer to the README.md for technical features, stack, and setup instructions.
-
-## Project Overview
-
-**Project Name**: Delivering Humanlike Interactions Through AI-Powered Avatars
-
-**Vision**: Create an intelligent, multilingual AI avatar system that provides personalized customer interactions with sentiment analysis, voice/tele agent capabilities, and contextual understanding using Azure services and agentic architecture.
-
-## 1. Requirements Specification
-
-### 1.1 Functional Requirements
-
-#### Core Features
-
-- **AI Avatar Interface**: Lifelike avatar with customizable appearance and natural speech
-- **Multi-modal Interaction**: Support for voice input, text chat, and video responses
-- **Multilingual Support**: Real-time language detection and response in 40+ languages
-- **Sentiment Analysis**: Real-time emotion detection and adaptive response tone
-- **Voice/Tele Agent**: Phone integration for traditional customer service channels
-- **Order Processing**: End-to-end order management with backend system integration
-- **Contextual Understanding**: RAG-powered knowledge base querying
-- **Accessibility**: Screen reader support, high contrast modes, and voice navigation
-
-#### Agentic Capabilities
-
-- **Dynamic Tool Selection**: Autonomous decision-making for tool/API usage
-- **Parallel Function Calling**: Simultaneous execution of multiple tasks
-- **Memory Management**: Persistent conversation history and context retention
-- **Workflow Orchestration**: Multi-step process automation using LangGraph
-- **Real-time Data Integration**: Live information retrieval and processing
-
-#### Business Logic
-
-- **Customer Profiling**: Dynamic user preference learning and adaptation
-- **Product Recommendations**: AI-driven suggestion engine
-- **Escalation Management**: Seamless handoff to human agents when needed
-- **Analytics Dashboard**: Real-time interaction metrics and insights
-
-### 1.2 Non-Functional Requirements
-
-#### Performance
-
-- **Response Time**: < 2 seconds for voice responses, < 1 second for text
-- **Concurrent Users**: Support for 1000+ simultaneous connections
-- **Availability**: 99.9% uptime with auto-scaling capabilities
-- **Latency**: < 500ms for speech-to-text and text-to-speech processing
-
-#### Security & Compliance
-
-- **Data Encryption**: End-to-end encryption for all communications
-- **Privacy**: GDPR/CCPA compliant data handling
-- **Authentication**: OAuth 2.0 and Azure AD integration
-- **Audit Logging**: Comprehensive activity tracking
-
-#### Scalability
-
-- **Horizontal Scaling**: Microservices architecture with container orchestration
-- **Load Balancing**: Intelligent traffic distribution
-- **Resource Optimization**: Dynamic scaling based on demand patterns
-
-## 2. System Architecture
-
-### 2.1 Solution Architecture Diagram
+## 🏗️ System Architecture
 
 ```mermaid
 graph TB
-    User[👤 User] --> Frontend[🖥️ Frontend Application<br/>React + TypeScript]
+    User[👤 User] --> Frontend[🖥️ Next.js Frontend<br/>React + TypeScript]
 
     subgraph "Client Layer"
-        Frontend --> Avatar[🎭 Avatar Renderer<br/>Azure TTS Avatar SDK]
+        Frontend --> Avatar[🎭 Avatar Component<br/>Azure TTS Avatar SDK]
         Frontend --> Audio[🎤 Audio Manager<br/>Speech Recognition]
-        Frontend --> UI[📱 UI Components<br/>Responsive Interface]
+        Frontend --> Chat[💬 Chat Interface<br/>Real-time Messaging]
     end
 
-    Frontend <-->|WebSocket| Gateway[🚪 API Gateway<br/>Express.js + Socket.io]
+    Frontend --> API[🚪 API Routes<br/>Next.js API]
 
-    subgraph "API Layer"
-        Gateway --> Auth[🔐 Authentication<br/>Azure AD]
-        Gateway --> Sentiment[😊 Sentiment Analysis<br/>Text Analytics API]
-        Gateway --> Avatar_Service[🎬 Avatar Service<br/>TTS Integration]
-    end
-
-    Gateway <-->|HTTP/WS| Backend[⚙️ Backend Services<br/>Node.js + Express]
-
-    subgraph "Intelligence Layer"
-        Backend --> Agent[🤖 LangGraph Agent<br/>Agentic Workflows]
-        Agent --> Tools[🛠️ Tool Orchestra<br/>Function Calling]
-        Tools --> Search[🔍 Bing Search Tool]
-        Tools --> Order[📋 Order Management]
-        Tools --> KB[📚 Knowledge Base Tool]
-        Tools --> Escalation[📞 Escalation Tool]
-    end
-
-    subgraph "Azure AI Services"
-        Speech[🗣️ Azure Speech<br/>STT/TTS]
-        OpenAI[🧠 Azure OpenAI<br/>GPT-4o]
-        TextAnalytics[📊 Text Analytics<br/>Sentiment/Language]
-        Translator[🌍 Translator<br/>Multi-language]
+    subgraph "AI Layer"
+        API --> AIProviders[🧠 AI Providers<br/>OpenAI, Anthropic, Groq, Mistral]
+        API --> Tools[🛠️ Function Tools<br/>Coffee Ordering System]
+        Tools --> Orders[☕ Order Management]
+        Tools --> Weather[🌤️ Weather Info]
+        Tools --> Company[🏢 Company Info]
     end
 
     subgraph "Data Layer"
-        CosmosDB[(🗄️ Cosmos DB<br/>Conversation History)]
-        AISearch[(🔎 AI Search<br/>Vector Store/RAG)]
-        Redis[(⚡ Redis Cache<br/>Session Management)]
-        Analytics[(📈 Analytics Store<br/>Metrics & Insights)]
+        API --> SQLite[(🗄️ SQLite Database<br/>Orders & Sessions)]
+        Orders --> SQLite
     end
 
-    subgraph "External Systems"
-        Phone[📞 Telephony<br/>Voice Agent]
-        OrderSystem[🛒 Order System<br/>Backend Integration]
-        CRM[👥 CRM System<br/>Customer Data]
+    subgraph "Azure Services"
+        Avatar --> Speech[🗣️ Azure Speech<br/>TTS/STT Services]
+        Speech --> TTS[🔊 Text-to-Speech]
+        Speech --> STT[🎤 Speech-to-Text]
     end
 
-    Agent --> Speech
-    Agent --> OpenAI
-    Agent --> TextAnalytics
-    Agent --> Translator
+    classDef client fill:#e1f5fe
+    classDef api fill:#f3e5f5
+    classDef ai fill:#e8f5e8
+    classDef data fill:#fce4ec
+    classDef azure fill:#e3f2fd
 
-    Backend --> CosmosDB
-    Backend --> AISearch
-    Backend --> Redis
-    Backend --> Analytics
-
-    Tools --> Phone
-    Tools --> OrderSystem
-    Tools --> CRM
-
-    classDef userLayer fill:#e1f5fe
-    classDef clientLayer fill:#f3e5f5
-    classDef apiLayer fill:#e8f5e8
-    classDef intelligenceLayer fill:#fff3e0
-    classDef azureLayer fill:#e3f2fd
-    classDef dataLayer fill:#fce4ec
-    classDef externalLayer fill:#f1f8e9
-
-    class User userLayer
-    class Frontend,Avatar,Audio,UI clientLayer
-    class Gateway,Auth,Sentiment,Avatar_Service apiLayer
-    class Backend,Agent,Tools,Search,Order,KB,Escalation intelligenceLayer
-    class Speech,OpenAI,TextAnalytics,Translator azureLayer
-    class CosmosDB,AISearch,Redis,Analytics dataLayer
-    class Phone,OrderSystem,CRM externalLayer
+    class User,Frontend,Avatar,Audio,Chat client
+    class API api
+    class AIProviders,Tools,Orders,Weather,Company ai
+    class SQLite data
+    class Speech,TTS,STT azure
 ```
 
-### 2.2 Agentic Workflow Diagram
-
-```mermaid
-sequenceDiagram
-    participant User as 👤 User
-    participant Frontend as 🖥️ Frontend
-    participant Agent as 🤖 LangGraph Agent
-    participant LLM as 🧠 Azure OpenAI
-    participant Tools as 🛠️ Tools
-    participant DB as 🗄️ Database
-
-    User->>Frontend: Voice/Text Input
-    Frontend->>Agent: Process Request
-
-    Agent->>DB: Retrieve Context
-    DB-->>Agent: Conversation History
-
-    Agent->>LLM: Generate Response Plan
-    Note over Agent,LLM: System Prompt + Context + Tools
-
-    LLM-->>Agent: Tool Selection & Args
-
-    loop Tool Execution
-        Agent->>Tools: Execute Tool
-        Tools-->>Agent: Tool Results
-        Agent->>LLM: Update Context
-        LLM-->>Agent: Next Action
-    end
-
-    Agent->>DB: Store Context
-    Agent-->>Frontend: Final Response
-    Frontend-->>User: Avatar Response
-```
-
-### 2.3 Data Flow Architecture
-
-```mermaid
-flowchart LR
-    subgraph "Input Processing"
-        A[🎤 Voice Input] --> B[🔊 Speech-to-Text]
-        C[💬 Text Input] --> D[📝 Text Processing]
-        B --> E[🧹 Input Normalization]
-        D --> E
-    end
-
-    subgraph "Intelligence Processing"
-        E --> F[😊 Sentiment Analysis]
-        E --> G[🌍 Language Detection]
-        F --> H[🤖 LangGraph Agent]
-        G --> H
-        H --> I[🧠 GPT-4o Processing]
-        I --> J[🛠️ Tool Selection]
-        J --> K[⚡ Parallel Execution]
-    end
-
-    subgraph "Tool Ecosystem"
-        K --> L[🔍 Knowledge Search]
-        K --> M[📋 Order Management]
-        K --> N[📞 Escalation Handler]
-        K --> O[🏷️ Product Catalog]
-        L --> P[📚 RAG Results]
-        M --> Q[🛒 Order Status]
-        N --> R[👨‍💼 Human Agent]
-        O --> S[🏷️ Product Info]
-    end
-
-    subgraph "Response Generation"
-        P --> T[📝 Response Synthesis]
-        Q --> T
-        R --> T
-        S --> T
-        T --> U[🗣️ Text-to-Speech]
-        T --> V[🎭 Avatar Animation]
-        U --> W[🔊 Audio Output]
-        V --> W
-    end
-
-    subgraph "Memory & Learning"
-        T --> X[🧠 Context Storage]
-        X --> Y[📊 Analytics Update]
-        Y --> Z[🎯 Personalization]
-        Z --> H
-    end
-```
-
-### 2.4 Microservices Architecture
-
-```mermaid
-graph TB
-    subgraph "Frontend Tier"
-        WebApp[🌐 Web Application<br/>React + TypeScript]
-        Mobile[📱 Mobile App<br/>React Native]
-        Phone[📞 Phone Interface<br/>Telephony Integration]
-    end
-
-    subgraph "API Gateway Layer"
-        Gateway[🚪 API Gateway<br/>Rate Limiting, Auth, Routing]
-        LoadBalancer[⚖️ Load Balancer<br/>Traffic Distribution]
-    end
-
-    subgraph "Microservices"
-        AuthService[🔐 Auth Service<br/>User Management]
-        AvatarService[🎭 Avatar Service<br/>TTS Avatar Management]
-        ConversationService[💬 Conversation Service<br/>Chat Management]
-        AgentService[🤖 Agent Service<br/>LangGraph Orchestration]
-        AnalyticsService[📊 Analytics Service<br/>Metrics & Insights]
-        NotificationService[🔔 Notification Service<br/>Real-time Updates]
-    end
-
-    subgraph "Data Services"
-        UserDB[(👤 User Database<br/>Cosmos DB)]
-        ConversationDB[(💬 Conversation Store<br/>Cosmos DB)]
-        VectorDB[(🔎 Vector Database<br/>AI Search)]
-        CacheLayer[(⚡ Cache Layer<br/>Redis)]
-        FileStorage[(📁 File Storage<br/>Blob Storage)]
-    end
-
-    subgraph "External APIs"
-        AzureAI[🧠 Azure AI Services]
-        OpenAI[🤖 Azure OpenAI]
-        BingSearch[🔍 Bing Search API]
-        OrderAPI[🛒 Order Management API]
-        CRMAPI[👥 CRM Integration]
-    end
-
-    WebApp --> Gateway
-    Mobile --> Gateway
-    Phone --> Gateway
-
-    Gateway --> LoadBalancer
-    LoadBalancer --> AuthService
-    LoadBalancer --> AvatarService
-    LoadBalancer --> ConversationService
-    LoadBalancer --> AgentService
-    LoadBalancer --> AnalyticsService
-    LoadBalancer --> NotificationService
-
-    AuthService --> UserDB
-    AvatarService --> FileStorage
-    ConversationService --> ConversationDB
-    AgentService --> VectorDB
-    AnalyticsService --> CacheLayer
-
-    AgentService --> AzureAI
-    AgentService --> OpenAI
-    AgentService --> BingSearch
-    AgentService --> OrderAPI
-    AgentService --> CRMAPI
-
-    classDef frontend fill:#e1f5fe
-    classDef gateway fill:#f3e5f5
-    classDef microservice fill:#e8f5e8
-    classDef database fill:#fce4ec
-    classDef external fill:#f1f8e9
-
-    class WebApp,Mobile,Phone frontend
-    class Gateway,LoadBalancer gateway
-    class AuthService,AvatarService,ConversationService,AgentService,AnalyticsService,NotificationService microservice
-    class UserDB,ConversationDB,VectorDB,CacheLayer,FileStorage database
-    class AzureAI,OpenAI,BingSearch,OrderAPI,CRMAPI external
-```
-
-### 2.5 Deployment Architecture
-
-```mermaid
-graph TB
-    subgraph "Azure Regions"
-        subgraph "Primary Region (East US)"
-            subgraph "Container Apps"
-                FrontendApp[🌐 Frontend App<br/>Static Web App]
-                APIApp[🚪 API Service<br/>Container App]
-                AgentApp[🤖 Agent Service<br/>Container App]
-                AnalyticsApp[📊 Analytics Service<br/>Container App]
-            end
-
-            subgraph "Data Services"
-                PrimaryDB[(🗄️ Cosmos DB<br/>Primary)]
-                PrimarySearch[(🔎 AI Search<br/>Primary)]
-                PrimaryCache[(⚡ Redis Cache<br/>Primary)]
-            end
-
-            subgraph "AI Services"
-                SpeechService[🗣️ Speech Services]
-                OpenAIService[🧠 OpenAI Service]
-                TextService[📊 Text Analytics]
-            end
-        end
-
-        subgraph "Secondary Region (West US)"
-            subgraph "Backup Services"
-                BackupDB[(🗄️ Cosmos DB<br/>Replica)]
-                BackupSearch[(🔎 AI Search<br/>Replica)]
-                BackupCache[(⚡ Redis Cache<br/>Replica)]
-            end
-        end
-    end
-
-    subgraph "Global Services"
-        CDN[🌍 Azure CDN<br/>Global Distribution]
-        DNS[🌐 Azure DNS<br/>Traffic Management]
-        Monitor[📊 Azure Monitor<br/>Observability]
-    end
-
-    subgraph "External Integrations"
-        Telephony[📞 Telephony Provider]
-        OrderSystems[🛒 Order Management]
-        CRM[👥 CRM Systems]
-    end
-
-    CDN --> FrontendApp
-    DNS --> CDN
-
-    APIApp --> PrimaryDB
-    APIApp --> PrimarySearch
-    APIApp --> PrimaryCache
-
-    AgentApp --> SpeechService
-    AgentApp --> OpenAIService
-    AgentApp --> TextService
-
-    PrimaryDB -.->|Replication| BackupDB
-    PrimarySearch -.->|Backup| BackupSearch
-    PrimaryCache -.->|Backup| BackupCache
-
-    AgentApp --> Telephony
-    AgentApp --> OrderSystems
-    AgentApp --> CRM
-
-    Monitor --> FrontendApp
-    Monitor --> APIApp
-    Monitor --> AgentApp
-    Monitor --> AnalyticsApp
-
-    classDef primary fill:#e3f2fd
-    classDef secondary fill:#f3e5f5
-    classDef global fill:#e8f5e8
-    classDef external fill:#f1f8e9
-
-    class FrontendApp,APIApp,AgentApp,AnalyticsApp,PrimaryDB,PrimarySearch,PrimaryCache,SpeechService,OpenAIService,TextService primary
-    class BackupDB,BackupSearch,BackupCache secondary
-    class CDN,DNS,Monitor global
-    class Telephony,OrderSystems,CRM external
-```
-
-### 2.6 Component Architecture
-
-- **Avatar Renderer**: Real-time avatar animation and lip-sync
-- **Audio Manager**: Speech recognition and audio processing
-- **UI Components**: Responsive interface with accessibility features
-- **State Management**: Redux/Zustand for application state
-
-#### API Layer
-
-- **Authentication Service**: User management and session handling
-- **Avatar Service**: TTS Avatar integration and video streaming
-- **Agent Service**: LangGraph agent orchestration
-- **Analytics Service**: User interaction tracking and metrics
-
-#### Backend Services
-
-- **Conversation Engine**: LangGraph-powered agentic workflows
-- **Knowledge Base**: RAG implementation with vector embeddings
-- **Sentiment Engine**: Real-time emotion analysis
-- **Integration Hub**: External API and service connectors
-
-#### Data Layer
-
-- **Conversation Store**: MongoDB for chat history and context
-- **Vector Database**: Azure AI Search for RAG implementation
-- **Cache Layer**: Redis for session management and performance
-- **Analytics Store**: Time-series database for metrics
-
-## 3. Technology Stack Options
-
-### Option 1: Azure-Native Stack (Recommended)
-
-| Component            | Technology                    | Justification                      |
-| -------------------- | ----------------------------- | ---------------------------------- |
-| **Frontend**         | React 18 + TypeScript + Vite  | Modern, performant, type-safe      |
-| **UI Library**       | Chakra UI + Framer Motion     | Accessible components + animations |
-| **State Management** | Zustand                       | Lightweight, TypeScript-first      |
-| **Avatar SDK**       | Azure TTS Avatar SDK          | Native Azure integration           |
-| **Speech Services**  | Azure Cognitive Services      | Best-in-class speech recognition   |
-| **Backend Runtime**  | Node.js 20 + Express.js       | TypeScript ecosystem compatibility |
-| **Agent Framework**  | LangGraph + LangChain         | Advanced agentic workflows         |
-| **LLM Service**      | Azure OpenAI GPT-4o           | Latest model with function calling |
-| **Database**         | Azure Cosmos DB (MongoDB API) | Globally distributed, scalable     |
-| **Vector Store**     | Azure AI Search               | Integrated RAG capabilities        |
-| **Cache**            | Azure Cache for Redis         | High-performance caching           |
-| **Hosting**          | Azure Container Apps          | Serverless containers              |
-| **Real-time**        | Socket.io + Azure SignalR     | WebSocket scaling                  |
-| **Monitoring**       | Azure Monitor + App Insights  | Comprehensive observability        |
-
-### Option 2: Multi-Cloud Hybrid Stack
-
-| Component            | Technology               | Justification                    |
-| -------------------- | ------------------------ | -------------------------------- |
-| **Frontend**         | Next.js 14 + TypeScript  | Full-stack React framework       |
-| **UI Library**       | shadcn/ui + Tailwind CSS | Modern design system             |
-| **State Management** | TanStack Query + Jotai   | Server state + atomic state      |
-| **Avatar SDK**       | Azure TTS Avatar SDK     | Core avatar functionality        |
-| **Speech Services**  | Azure Cognitive Services | Primary speech processing        |
-| **Backend Runtime**  | Node.js + Fastify        | High-performance HTTP server     |
-| **Agent Framework**  | LangGraph + Custom Tools | Flexible agent architecture      |
-| **LLM Service**      | Azure OpenAI + Anthropic | Multi-provider approach          |
-| **Database**         | PostgreSQL + Prisma ORM  | Relational data with type safety |
-| **Vector Store**     | Pinecone                 | Specialized vector database      |
-| **Cache**            | Upstash Redis            | Serverless Redis                 |
-| **Hosting**          | Vercel + Railway         | Modern deployment platforms      |
-| **Real-time**        | Pusher Channels          | Managed WebSocket service        |
-| **Monitoring**       | Datadog                  | Advanced APM and logging         |
-
-### Option 3: Open-Source First Stack
-
-| Component            | Technology                  | Justification                      |
-| -------------------- | --------------------------- | ---------------------------------- |
-| **Frontend**         | SvelteKit + TypeScript      | Lightweight, compiled framework    |
-| **UI Library**       | Skeleton UI + SCSS          | Svelte-native components           |
-| **State Management** | Svelte Stores               | Built-in reactive state            |
-| **Avatar SDK**       | Azure TTS Avatar SDK        | Required for avatar functionality  |
-| **Speech Services**  | Azure Cognitive Services    | Best available option              |
-| **Backend Runtime**  | Deno 2 + Hono               | Modern runtime + framework         |
-| **Agent Framework**  | LangGraph + Ollama          | Local LLM capabilities             |
-| **LLM Service**      | Azure OpenAI + Local Models | Hybrid approach                    |
-| **Database**         | Supabase (PostgreSQL)       | Open-source Firebase alternative   |
-| **Vector Store**     | Qdrant                      | Open-source vector database        |
-| **Cache**            | KeyDB                       | Redis-compatible, faster           |
-| **Hosting**          | Self-hosted + Docker        | Full control and cost optimization |
-| **Real-time**        | WebSocket (native)          | Built-in real-time capabilities    |
-| **Monitoring**       | Grafana + Prometheus        | Open-source observability          |
-
-## 4. 5-Day Development Plan
-
-| Day | Component Area       | Summary of Work Needed                                   | Owners | Team Alignment/Ownership | PM/EM | Agreement Status |
-| --- | -------------------- | -------------------------------------------------------- | ------ | ------------------------ | ----- | ---------------- |
-| 1   | Frontend UI          | Build React UI, setup layout                             |        |                          |       |                  |
-| 1   | TTS Avatar Component | Develop TTS avatar, integrate Azure Speech SDK           |        |                          |       |                  |
-| 2   | Backend API          | Develop Express.js API, enable WebSocket, connect Azure  |        |                          |       |                  |
-| 3   | Agentic Workflows    | Implement LangChain/LangGraph agent, add sentiment/RAG   |        |                          |       |                  |
-| 4   | Multimodal Features  | Add speech-to-text, video, multi-language, accessibility |        |                          |       |                  |
-| 5   | Analytics & Final QA | Build dashboard, optimize, test, document, deploy        |        |                          |       |                  |
-
-_Add developer names and ownership details in the table above as assignments are made._
-
-## Component Work/Tasks Breakdown
-
-| Component            | Work Needed                                                                                                                                                                              | Priority | Owners        | Notes |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------- | ----- |
-| Frontend UI          | - Build responsive layout and navigation<br>- Integrate shadcn/ui and Tailwind CSS<br>- Implement main dashboard and settings pages                                                      | High     | Deepak Kamboj |       |
-| TTS Avatar Component | - Develop avatar UI component<br>- Integrate Azure Speech SDK for TTS<br>- Support avatar customization (appearance, voice)<br>- Handle real-time speech and animation                   | High     |               |       |
-| Backend API          | - Create REST endpoints for chat, models, grab<br>- Implement WebSocket for real-time features<br>- Connect to Azure services (OpenAI, TTS)<br>- Ensure secure API access                | High     |               |       |
-| Agentic Workflows    | - Integrate LangChain/LangGraph agent<br>- Add sentiment analysis and RAG<br>- Enable parallel tool/function calling<br>- Persist conversation history                                   | Medium   | Deepak Kamboj |       |
-| Multimodal Features  | - Add speech-to-text and video support<br>- Enable multi-language responses<br>- Implement accessibility features (a11y)<br>- Support custom backgrounds                                 | Medium   |               |       |
-| Analytics & QA       | - Build analytics dashboard<br>- Optimize performance and reliability<br>- Conduct testing and QA<br>- Write documentation and deploy<br>- Create Hackathon demo, presentation and video | Medium   |               |       |
-
-_Fill in Owners and Notes as assignments are made._
-
-## 5. Key Features Implementation
-
-### 5.1 Sentiment Analysis Pipeline
-
-```typescript
-interface SentimentAnalysis {
-  emotion: 'positive' | 'negative' | 'neutral' | 'frustrated' | 'excited';
-  confidence: number;
-  suggestions: string[];
-  escalationRequired: boolean;
-}
-```
-
-### 5.2 Agentic Workflow Example
-
-```typescript
-const customerServiceAgent = new LangGraphAgent({
-  tools: [
-    new ProductSearchTool(),
-    new OrderManagementTool(),
-    new EscalationTool(),
-    new SentimentAnalysisTool(),
-  ],
-  memory: new ConversationBufferWindowMemory(),
-  llm: new AzureOpenAI({ model: 'gpt-4o' }),
-});
-```
-
-### 5.3 Multi-modal Integration
-
-```typescript
-interface InteractionChannel {
-  voice: VoiceRecognition;
-  text: TextInput;
-  avatar: AvatarRenderer;
-  phone: TelephonyIntegration;
-}
-```
-
-## 6. Success Metrics
-
-### Technical Metrics
-
-- **Response Time**: < 2 seconds average
-- **Accuracy**: > 95% intent recognition
-- **Uptime**: 99.9% availability
-- **Scalability**: 1000+ concurrent users
-
-### Business Metrics
-
-- **Customer Satisfaction**: > 4.5/5 rating
-- **Resolution Rate**: > 80% first-contact resolution
-- **Language Coverage**: 40+ languages supported
-- **Accessibility Compliance**: WCAG 2.1 AA standard
-
-## 7. Risk Mitigation
-
-### Technical Risks
-
-- **API Rate Limits**: Implement caching and request pooling
-- **Avatar Performance**: Optimize video streaming and compression
-- **Real-time Latency**: Use CDN and edge computing
-- **LLM Reliability**: Implement fallback mechanisms
-
-### Business Risks
-
-- **Data Privacy**: Implement zero-retention policies for sensitive data
-- **Bias in AI**: Regular model testing and bias detection
-- **Accessibility**: Comprehensive testing with assistive technologies
-- **Scalability**: Auto-scaling infrastructure planning
-
-## 8. Learning Resources & Documentation
-
-### 8.1 Azure TTS Avatar SDK
-
-#### Official Documentation
-
-- **Azure TTS Avatar Overview**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar
-- **TTS Avatar SDK Reference**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech-avatar/avatar-sdk-reference
-- **JavaScript SDK Documentation**: https://docs.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/
-- **Avatar Customization Guide**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech-avatar/avatar-customization
-
-#### Tutorials & Samples
-
-- **Quick Start Guide**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech-avatar/avatar-quickstart
-- **JavaScript Sample Code**: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar
-- **Real-time Avatar Demo**: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar/realtime
-- **Batch Avatar Processing**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech-avatar/batch-avatar-synthesis
-
-#### Video Tutorials
-
-- **Azure TTS Avatar Introduction**: https://www.youtube.com/watch?v=your-video-id
-- **Building Interactive Avatars**: https://docs.microsoft.com/en-us/shows/ai-show/azure-text-to-speech-avatar
-- **Microsoft Learn Path**: https://docs.microsoft.com/en-us/learn/paths/azure-speech-services/
-
-### 8.2 Azure Cognitive Services
-
-#### Speech Services
-
-- **Speech SDK Overview**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/
-- **Speech-to-Text Documentation**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-to-text
-- **Text-to-Speech Documentation**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech
-- **JavaScript Speech SDK**: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-javascript
-
-#### Language Understanding & AI
-
-- **Azure OpenAI Service**: https://docs.microsoft.com/en-us/azure/cognitive-services/openai/
-- **Language Understanding (LUIS)**: https://docs.microsoft.com/en-us/azure/cognitive-services/luis/
-- **Text Analytics (Sentiment Analysis)**: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/
-- **Translator Service**: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/
-
-#### Code Samples & SDKs
-
-- **Cognitive Services Samples Repository**: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-- **JavaScript/TypeScript Examples**: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js
-- **REST API Reference**: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/
-- **NPM Packages**:
-  - `microsoft-cognitiveservices-speech-sdk`
-  - `@azure/cognitiveservices-textanalytics`
-  - `@azure/cognitiveservices-luis-runtime`
-
-### 8.3 LangChain & LangGraph Resources
-
-#### Official Documentation
-
-- **LangChain Documentation**: https://js.langchain.com/docs/
-- **LangGraph Documentation**: https://langchain-ai.github.io/langgraph/
-- **LangChain Agents**: https://js.langchain.com/docs/modules/agents/
-- **Azure OpenAI Integration**: https://js.langchain.com/docs/integrations/llms/azure_openai
-
-#### Tutorials & Guides
-
-- **Building Agentic Workflows**: https://langchain-ai.github.io/langgraph/tutorials/introduction/
-- **Tool Calling with LangGraph**: https://langchain-ai.github.io/langgraph/how-tos/tool-calling/
-- **RAG Implementation**: https://js.langchain.com/docs/use_cases/question_answering/
-- **Memory Management**: https://js.langchain.com/docs/modules/memory/
-
-### 8.4 Additional Development Resources
-
-#### Azure Development
-
-- **Azure SDK for JavaScript**: https://docs.microsoft.com/en-us/javascript/api/overview/azure/
-- **Azure Developer Documentation**: https://docs.microsoft.com/en-us/azure/developer/
-- **Azure Samples**: https://github.com/Azure-Samples
-- **Azure Architecture Center**: https://docs.microsoft.com/en-us/azure/architecture/
-
-#### TypeScript & React
-
-- **TypeScript Handbook**: https://www.typescriptlang.org/docs/
-- **React Documentation**: https://react.dev/
-- **Azure Static Web Apps**: https://docs.microsoft.com/en-us/azure/static-web-apps/
-- **WebSocket Implementation**: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
-
-### 8.5 Community & Support
-
-#### Forums & Communities
-
-- **Azure Cognitive Services Forum**: https://docs.microsoft.com/en-us/answers/topics/azure-cognitive-services.html
-- **LangChain Discord**: https://discord.gg/langchain
-- **Stack Overflow Tags**: `azure-cognitive-services`, `azure-speech`, `langchain`
-- **Microsoft Tech Community**: https://techcommunity.microsoft.com/t5/azure-ai-services/bd-p/Azure-AI-Services
-
-#### GitHub Repositories
-
-- **Azure SDK for JavaScript**: https://github.com/Azure/azure-sdk-for-js
-- **LangChain JS**: https://github.com/langchain-ai/langchainjs
-- **Azure Samples**: https://github.com/Azure-Samples
-- **Microsoft Cognitive Services**: https://github.com/microsoft/cognitive-services-speech-sdk-js
-
-## 9. Getting Started
+## 🛠️ Current Technology Stack
+
+Based on the actual implementation, here's our tech stack:
+
+| Component              | Technology           | Version       | Purpose                                    |
+| ---------------------- | -------------------- | ------------- | ------------------------------------------ |
+| **Frontend Framework** | Next.js              | 15.0.3        | Full-stack React framework with App Router |
+| **UI Library**         | shadcn/ui + Radix UI | Latest        | Accessible, customizable components        |
+| **Styling**            | Tailwind CSS         | ^3.4.15       | Utility-first CSS framework                |
+| **State Management**   | Jotai                | ^2.10.3       | Atomic state management                    |
+| **AI Integration**     | Vercel AI SDK        | ^4.0.3        | Multi-provider AI integration              |
+| **Avatar SDK**         | Azure Speech SDK     | ^1.45.0       | TTS Avatar and Speech Services             |
+| **Database**           | SQLite + sqlite3     | ^5.1.1/^5.1.7 | Local persistent storage                   |
+| **Animation**          | Framer Motion        | ^11.11.17     | Smooth UI animations                       |
+| **Validation**         | Zod                  | ^3.23.8       | TypeScript-first schema validation         |
+| **Icons**              | Lucide React         | ^0.460.0      | Beautiful icon library                     |
+
+### AI Providers Supported
+
+- **OpenAI**: GPT-4 Turbo via `@ai-sdk/openai`
+- **Anthropic**: Claude 3 via `@ai-sdk/anthropic`
+- **Groq**: Mixtral models via `@ai-sdk/groq`
+- **Mistral**: Latest models via `@ai-sdk/mistral`
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 20+
-- Azure subscription with OpenAI access
-- TypeScript development environment
-- Docker for local development
+- Node.js 18+
+- npm or yarn package manager
+- Azure subscription (for Speech Services)
+- AI provider API keys (OpenAI, Anthropic, etc.)
 
-### Azure Services Setup
+### Installation
 
-1. **Create Azure Cognitive Services Resource**
-   - Follow: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account
-2. **Enable Azure OpenAI Service**
-   - Apply for access: https://aka.ms/oai/access
-3. **Configure TTS Avatar**
-   - Follow setup guide: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech-avatar/avatar-quickstart
-
-### Quick Start Commands
+1. **Clone the repository**:
 
 ```bash
-# Clone and setup
-git clone <repository>
-cd ai-avatar-project
+git clone https://github.com/deepakkamboj/avatar-connect.git
+cd avatar-connect
+```
+
+2. **Install dependencies**:
+
+```bash
 npm install
-
-# Install Azure SDKs
-npm install microsoft-cognitiveservices-speech-sdk
-npm install @azure/cognitiveservices-textanalytics
-npm install langchain @langchain/azure-openai
-
-# Environment setup
-cp .env.example .env
-# Configure Azure keys and endpoints
-
-# Development
-npm run dev:frontend  # React development server
-npm run dev:backend   # Express API server
-npm run dev:agent     # LangGraph agent service
-
-# Build and deploy
-npm run build
-npm run deploy:azure
 ```
 
-### Environment Variables Template
+3. **Set up environment variables**:
 
 ```bash
-# Azure Cognitive Services
-AZURE_SPEECH_KEY=your_speech_key
-AZURE_SPEECH_REGION=your_region
-AZURE_OPENAI_KEY=your_openai_key
-AZURE_OPENAI_ENDPOINT=your_openai_endpoint
-
-# TTS Avatar
-AZURE_AVATAR_ENDPOINT=your_avatar_endpoint
-AZURE_AVATAR_KEY=your_avatar_key
-
-# Database
-COSMOS_DB_CONNECTION_STRING=your_cosmos_connection
-AZURE_SEARCH_ENDPOINT=your_search_endpoint
-AZURE_SEARCH_KEY=your_search_key
+cp .env.example .env.local
 ```
 
-This specification provides a comprehensive foundation for building a sophisticated AI-powered avatar system that combines the latest in Azure AI services, agentic architecture, and modern web technologies.
+Fill in your API keys in `.env.local`:
+
+```env
+# Azure Speech Services
+AZURE_SPEECH_API_KEY=your_azure_speech_key
+AZURE_SPEECH_REGION=your_region
+
+# AI Providers
+OPENAI_API_KEY=your_openai_key
+ANTHROPIC_API_KEY=your_anthropic_key
+GROQ_API_KEY=your_groq_key
+MISTRAL_API_KEY=your_mistral_key
+```
+
+4. **Initialize the database**:
+
+```bash
+npm run init-db
+```
+
+5. **Start development server**:
+
+```bash
+npm run dev
+```
+
+6. **Open your browser**:
+   Visit [http://localhost:3000](http://localhost:3000)
+
+## 💾 Database Setup
+
+The project uses SQLite for persistent storage. The database initialization script creates:
+
+- **orders** table: Stores customer orders with session tracking
+- **order_items** table: Individual coffee items within orders
+- **Indexes**: Optimized for quick lookups and relationships
+
+Run the database setup:
+
+```bash
+npm run init-db
+```
+
+## 🎯 CoffeeCorp Integration
+
+This project demonstrates a complete coffee ordering system with:
+
+### Available Tools
+
+1. **☕ Coffee Ordering**: Take customer orders with customization options
+2. **📋 Order Status**: Check order progress and updates
+3. **❌ Order Cancellation**: Cancel existing orders
+4. **🏢 Company Information**: CoffeeCorp details and services
+5. **🌤️ Weather Information**: Current weather conditions
+6. **👨‍💼 About Developer**: Information about Deepak Kamboj
+
+### Workflow Example
+
+1. Customer speaks to avatar: "I'd like to order a coffee"
+2. Avatar asks for customer name and coffee preferences
+3. System processes order using AI function calling
+4. Order is saved to SQLite database with unique ID
+5. Customer receives confirmation and order status
+
+## 🎭 Avatar Features
+
+- **Real-time Speech**: Azure TTS with natural voice synthesis
+- **Continuous Listening**: Auto-restart speech recognition
+- **Visual Feedback**: Avatar animations synchronized with speech
+- **Background Control**: Customizable backgrounds and themes
+- **Accessibility**: Screen reader support and keyboard navigation
+
+## 📊 Performance Metrics
+
+- **Response Time**: < 2 seconds for AI responses
+- **Speech Recognition**: Continuous listening with auto-restart
+- **Database Queries**: Optimized with indexes for fast lookups
+- **UI Responsiveness**: 60fps animations with Framer Motion
+- **Multi-provider Failover**: Automatic provider switching on errors
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Deploy to Vercel
+npm run build
+vercel deploy
+```
+
+### Azure Static Web Apps
+
+```bash
+# Build for production
+npm run build
+npm run export
+```
+
+## 🌐 APIs & Technologies Explained
+
+### ICE (Interactive Connectivity Establishment)
+
+**ICE** stands for **Interactive Connectivity Establishment** - a crucial protocol for establishing real-time peer-to-peer connections in WebRTC applications.
+
+#### What is ICE?
+
+- **Purpose**: Enables direct communication between browsers through NAT/firewall traversal
+- **Function**: Discovers the best network path for WebRTC connections
+- **Components**: Uses STUN and TURN servers to establish connectivity
+
+#### ICE in AvatarConnect
+
+```typescript
+// ICE Server Token API - gets Azure relay configuration
+GET / api / azure - speech / get - ice - server - token;
+
+// Used in WebRTC setup for avatar video streaming
+const peerConnection = new RTCPeerConnection({
+  iceServers: azureIceServers, // From ICE token endpoint
+});
+```
+
+#### ICE Workflow in Our Avatar System
+
+1. **Request ICE Token**: Client requests Azure ICE server configuration
+2. **WebRTC Setup**: Browser creates RTCPeerConnection with ICE servers
+3. **Candidate Exchange**: ICE candidates are exchanged for optimal path
+4. **Avatar Stream**: Video stream established through best network route
+
+### � Complete API Reference
+
+#### Azure Speech & Avatar APIs
+
+| API Endpoint          | Purpose                                  | Full Form/Description                                               |
+| --------------------- | ---------------------------------------- | ------------------------------------------------------------------- |
+| **ICE Server Token**  | `/api/azure-speech/get-ice-server-token` | Interactive Connectivity Establishment - WebRTC relay configuration |
+| **Speech Token**      | `/api/azure-speech/get-speech-token`     | Azure Cognitive Services authentication token                       |
+| **Avatar Connection** | `/api/azure-speech/connect-avatar`       | Establishes WebRTC connection for TTS Avatar                        |
+| **OpenAI Response**   | `/api/azure-speech/get-oai-response`     | Azure OpenAI streaming response proxy                               |
+
+#### AI & Chat APIs
+
+| API Endpoint    | Purpose           | Technology Stack                                                 |
+| --------------- | ----------------- | ---------------------------------------------------------------- |
+| **Chat API**    | `/api/chat`       | Multi-provider AI integration (OpenAI, Anthropic, Groq, Mistral) |
+| **Chat Models** | `/api/chat-model` | Dynamic model selection and configuration                        |
+| **Grab API**    | `/api/grab`       | Data extraction and processing utilities                         |
+
+### 🧠 AI Provider Integration
+
+#### Supported AI Models & APIs
+
+```typescript
+// Multi-provider AI SDK integration
+const providers = {
+  openai: 'gpt-4-turbo', // OpenAI GPT-4 Turbo
+  anthropic: 'claude-3-opus', // Anthropic Claude 3 Opus
+  groq: 'mixtral-8x7b-32768', // Groq Mixtral 8x7B
+  mistral: 'mistral-large-latest', // Mistral Large
+};
+```
+
+#### Function Calling Tools
+
+- **Coffee Ordering**: Place, modify, and track orders
+- **Order Status**: Real-time order progress tracking
+- **Order Cancellation**: Cancel existing orders with confirmation
+- **Company Information**: CoffeeCorp details and services
+- **Weather API**: Current weather conditions
+- **Developer Info**: About Deepak Kamboj and project details
+
+### 📡 WebRTC & Media APIs
+
+#### Core WebRTC Components
+
+| Technology            | Full Form                               | Purpose in Project                             |
+| --------------------- | --------------------------------------- | ---------------------------------------------- |
+| **WebRTC**            | Web Real-Time Communication             | Peer-to-peer audio/video streaming for avatars |
+| **RTCPeerConnection** | Real-Time Communication Peer Connection | Direct browser-to-server video connection      |
+| **MediaStream**       | Media Stream API                        | Handle avatar video and audio streams          |
+| **getUserMedia**      | Get User Media API                      | Access microphone for speech input             |
+
+#### Media Processing Pipeline
+
+```typescript
+// Speech Recognition → AI Processing → Avatar Response
+navigator.mediaDevices.getUserMedia()
+→ Azure Speech STT
+→ AI Provider (GPT-4/Claude/etc.)
+→ Function Tools (Coffee ordering)
+→ Azure Speech TTS
+→ Avatar WebRTC Video Stream
+```
+
+### 🗄️ Database & Storage APIs
+
+#### SQLite Integration
+
+- **Connection**: `connectDB.ts` - Database connection singleton
+- **Orders Table**: Customer order storage with session tracking
+- **Order Items**: Individual coffee items with customizations
+- **Indexes**: Optimized queries for real-time lookups
+
+#### API Endpoints for Data
+
+```typescript
+// Order Management through AI Tools
+POST /api/chat -> Function calling -> SQLite operations
+- Create orders with unique IDs
+- Track order status updates
+- Session-based order retrieval
+- Cross-session order lookup
+```
+
+### 🎤 Speech & Audio APIs
+
+#### Azure Cognitive Services
+
+| Service           | Full Form                   | API Endpoint                 | Purpose                        |
+| ----------------- | --------------------------- | ---------------------------- | ------------------------------ |
+| **STT**           | Speech-to-Text              | Azure Speech Recognition API | Convert voice input to text    |
+| **TTS**           | Text-to-Speech              | Azure Speech Synthesis API   | Generate natural avatar speech |
+| **Neural Voices** | Azure Neural Text-to-Speech | Multiple voice options       | Lifelike voice synthesis       |
+
+#### Voice Configuration
+
+```typescript
+const AZURE_VOICES = [
+  { voice_id: 'en-US-JennyNeural', name: 'Jenny', gender: 'Female' },
+  { voice_id: 'en-US-GuyNeural', name: 'Guy', gender: 'Male' },
+  { voice_id: 'en-GB-LibbyNeural', name: 'Libby', gender: 'Female' },
+];
+```
+
+### 🔐 Authentication & Security
+
+#### API Security
+
+- **Azure API Keys**: Secure token-based authentication
+- **Environment Variables**: Server-side credential storage
+- **Token Rotation**: Automatic speech token refresh
+- **CORS Configuration**: Controlled cross-origin requests
+
+### 📊 Real-time Communication Flow
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 User Voice
+    participant Browser as 🌐 Browser
+    participant ICE as 🔄 ICE Servers
+    participant Azure as ☁️ Azure Services
+    participant AI as 🧠 AI Providers
+    participant DB as 🗄️ SQLite DB
+
+    User->>Browser: Voice Input
+    Browser->>Azure: Speech-to-Text API
+    Azure-->>Browser: Transcribed Text
+    Browser->>AI: Chat API + Function Tools
+    AI->>DB: Order Management
+    DB-->>AI: Order Confirmation
+    AI-->>Browser: AI Response + Tool Results
+    Browser->>Azure: Text-to-Speech API
+    Browser->>ICE: ICE Token Request
+    ICE-->>Browser: WebRTC Configuration
+    Browser->>Azure: Avatar WebRTC Stream
+    Azure-->>User: Lifelike Avatar Response
+```
+
+### 🛠️ Development APIs & Tools
+
+#### Testing & Development
+
+- **Playwright**: End-to-end API testing
+- **TypeScript**: Type-safe API interfaces
+- **Hot Reload**: Real-time development updates
+- **Error Handling**: Comprehensive API error responses
+
+This comprehensive API integration enables seamless real-time avatar interactions with persistent order management and multi-provider AI intelligence.
+
+## �📁 Project Structure
+
+```
+avatar-connect/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── azure-speech/   # Azure Speech & Avatar APIs
+│   │   │   │   ├── get-ice-server-token/  # ICE WebRTC config
+│   │   │   │   ├── get-speech-token/      # Azure auth tokens
+│   │   │   │   ├── connect-avatar/        # Avatar WebRTC setup
+│   │   │   │   └── get-oai-response/      # OpenAI proxy
+│   │   │   ├── chat/           # AI chat API endpoints
+│   │   │   ├── chat-model/     # Model configuration
+│   │   │   └── grab/           # Data extraction
+│   │   ├── tools/             # Function calling tools
+│   │   └── page.tsx           # Main application page
+│   ├── components/
+│   │   ├── controls/          # Chat and media controls
+│   │   ├── playground/        # Avatar playground
+│   │   ├── settings/          # Configuration panels
+│   │   └── ui/               # shadcn/ui components
+│   ├── lib/
+│   │   ├── atoms.ts          # Jotai state atoms
+│   │   ├── constants.ts      # App constants & prompts
+│   │   ├── connectDB.ts      # Database connection
+│   │   ├── useAzureAvatarV2.ts  # WebRTC avatar hook
+│   │   ├── useAzureSpeech.ts    # Speech APIs hook
+│   │   └── types.ts          # TypeScript definitions
+│   └── services/
+│       └── orderService.ts   # Order management logic
+├── db/                       # SQLite database files
+├── scripts/
+│   └── init-db.js           # Database initialization
+└── public/                  # Static assets
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Microsoft Hackathon 2025** for the inspiring challenge
+- **Azure Cognitive Services** for powerful speech and AI capabilities
+- **Vercel AI SDK** for seamless AI provider integration
+- **shadcn/ui** for beautiful, accessible components
+
+---
+
+**Built for Microsoft Hackathon 2025 by Deepak Kamboj**
+
+_Revolutionizing customer engagement through AI-powered avatars and intelligent conversation workflows._

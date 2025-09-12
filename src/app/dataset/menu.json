@@ -1,0 +1,52 @@
+[
+    {
+        "item_id": "M001",
+        "name": "Espresso",
+        "description": "A rich and bold coffee experience.",
+        "prices": {"Small": 2.00, "Medium": 2.50, "Large": 3.00}
+    },
+    {
+        "item_id": "M002",
+        "name": "Latte",
+        "description": "A smooth blend of espresso and steamed milk.",
+        "prices": {"Small": 3.00, "Medium": 3.50, "Large": 4.00}
+    },
+    {
+        "item_id": "M003",
+        "name": "Cappuccino",
+        "description": "A perfect balance of espresso, steamed milk, and foam.",
+        "prices": {"Small": 3.25, "Medium": 3.75, "Large": 4.25}
+    },
+    {
+        "item_id": "M004",
+        "name": "Cold Brew",
+        "description": "A refreshing and smooth cold coffee.",
+        "prices": {"Small": 3.50, "Medium": 4.00, "Large": 4.50}
+    },
+    {
+        "item_id": "M005",
+        "name": "Americano",
+        "description": "Espresso with added hot water for a smooth taste.",
+        "prices": {"Small": 2.25, "Medium": 2.75, "Large": 3.25}
+    },   
+    {
+        "item_id": "M006",
+        "name": "Mocha",
+        "description": "A delicious blend of espresso, chocolate, and steamed milk.",
+        "prices": {"Small": 2.25, "Medium": 2.75, "Large": 3.25}
+    },   
+        {
+            "item_id": "M007",
+            "name": "Macchiato",
+            "description": "Espresso with a small amount of steamed milk.",
+            "prices": {"Small": 3.00, "Medium": 3.50, "Large": 4.00}
+
+        },
+        {
+            "item_id": "M008",
+            "name": "Flat White",
+            "description": "Espresso with steamed milk and a thin layer of microfoam.",
+            "prices": {"Small": 3.50, "Medium": 4.00, "Large": 4.50}
+        }
+]
+       

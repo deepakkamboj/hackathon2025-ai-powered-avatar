@@ -1,0 +1,76 @@
+{
+  "data": {
+    "avatars": [
+      {
+        "pose_id": "lisa",
+        "pose_name": "Lisa",
+        "gender": "Female",
+        "description": "Professional female avatar with clear speech",
+        "preview_image": "/avatars/lisa-preview.jpg",
+        "default_voice": {
+          "voice_id": "en-US-JennyNeural",
+          "name": "Jenny"
+        }
+      },
+      {
+        "pose_id": "meg",
+        "pose_name": "Meg",
+        "gender": "Female",
+        "description": "Friendly female avatar with British accent",
+        "preview_image": "/avatars/meg-preview.jpg",
+        "default_voice": {
+          "voice_id": "en-GB-LibbyNeural",
+          "name": "Libby"
+        }
+      },
+      {
+        "pose_id": "max",
+        "pose_name": "Max",
+        "gender": "Male",
+        "description": "Professional male avatar with clear speech",
+        "preview_image": "/avatars/max-preview.jpg",
+        "default_voice": {
+          "voice_id": "en-US-GuyNeural",
+          "name": "Guy"
+        }
+      }
+    ],
+    "voices": [
+      {
+        "voice_id": "en-US-JennyNeural",
+        "name": "Jenny",
+        "gender": "Female",
+        "locale": "en-US",
+        "style": "professional"
+      },
+      {
+        "voice_id": "en-US-GuyNeural",
+        "name": "Guy",
+        "gender": "Male",
+        "locale": "en-US",
+        "style": "professional"
+      },
+      {
+        "voice_id": "en-GB-LibbyNeural",
+        "name": "Libby",
+        "gender": "Female",
+        "locale": "en-GB",
+        "style": "friendly"
+      },
+      {
+        "voice_id": "en-US-AriaNeural",
+        "name": "Aria",
+        "gender": "Female",
+        "locale": "en-US",
+        "style": "conversational"
+      },
+      {
+        "voice_id": "en-US-DavisNeural",
+        "name": "Davis",
+        "gender": "Male",
+        "locale": "en-US",
+        "style": "conversational"
+      }
+    ]
+  }
+}

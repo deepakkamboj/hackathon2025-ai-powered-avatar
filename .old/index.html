@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Coffee Ordering Assistant</title>
+
+    <link href="./css/styles.css" rel="stylesheet" />
+
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+    <script src="./js/main.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/@fluentui/web-components@2.0.0"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <img src="images/Microsoft.png" alt="Logo" width="32" height="32" />
+      <span class="header__title">Coffee Ordering Assistant</span>
+      <ul class="menu-items">
+        <li>Espresso</li>
+        <li>Americano</li>
+        <li>Cappuccino</li>
+        <li>Latte</li>
+        <li>Mocha</li>
+        <li>Macchiato</li>
+        <li>Flat White</li>
+        <li>Affogato</li>
+        <li>CART (0)</li>
+        <!-- Mic Settings button moved outside menu for global access -->
+        <button
+          id="micSettingsBtn"
+          onclick="showMicSettingsDialog()"
+          style="
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 10001;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 8px 16px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+          "
+        >
+          Mic Settings
+        </button>
+      </ul>
+    </div>
+
+    <div class="title">
+      <h1>Order Coffee with Your Voice!</h1>
+    </div>
+
+    <div class="main">
+      <div class="main-block">
+        <h2>Try asking me:</h2>
+        <div class="suggested-questions">
+          <button onclick="handleUserQuery('What coffee do you have?')">
+            What coffee do you have?
+          </button>
+          <button onclick="handleUserQuery('I want to order a cappuccino')">
+            I want to order a cappuccino
+          </button>
+          <button onclick="handleUserQuery('Can I get two lattes?')">
+            Can I get two lattes?
+          </button>
+          <button
+            onclick="handleUserQuery('What is the price of an espresso?')"
+          >
+            What is the price of an espresso?
+          </button>
+          <button onclick="handleUserQuery('Order one mocha for me')">
+            Order one mocha for me
+          </button>
+        </div>
+      </div>
+
+      <div class="avatar-block">
+        <div id="remoteVideo"></div>
+        <canvas
+          id="canvas"
+          width="720"
+          height="1080"
+          style="background-color: transparent"
+          hidden="hidden"
+        ></canvas>
+        <canvas
+          id="tmpCanvas"
+          width="720"
+          height="1080"
+          hidden="hidden"
+        ></canvas>
+
+        <fluent-card class="record-card">
+          <div class="outerbutton">
+            <button
+              id="startRecording"
+              onclick="window.startRecording()"
+              class="round-button"
+            >
+              <i id="buttonIcon" class="fas fa-microphone"></i>
+            </button>
+          </div>
+
+          <label id="spokenText" for="spokenText">
+            Press the mic to start talking
+          </label>
+        </fluent-card>
+      </div>
+
+      <div class="main-block">
+        <ul id="chathistory" class="chat-history"></ul>
+      </div>
+    </div>
+
+    <div id="loginOverlay">
+      <div id="gradientOverlay">
+        <div class="loginCard">
+          <div class="loginCard__header">Login</div>
+
+          <fluent-text-field appearance="outline" placeholder="user@email.com"
+            >Username</fluent-text-field
+          >
+          <fluent-text-field appearance="outline" placeholder="****************"
+            >Password</fluent-text-field
+          >
+
+          <div style="font-size: 14px">
+            Pick an avatar and voice
+            <div style="display: flex; margin-top: 4px">
+              <fluent-select
+                id="avatar-name"
+                style="min-width: 100px"
+                title="Select a section"
+              >
+                <fluent-option value="Lisa">Lisa</fluent-option>
+                <fluent-option value="Meg">Meg</fluent-option>
+                <fluent-option value="max">Max</fluent-option>
+              </fluent-select>
+
+              <fluent-select
+                id="avatar-voice"
+                style="min-width: 100px"
+                title="Select a section"
+              >
+                <fluent-option value="en-US-AvaMultilingualNeural"
+                  >Ava</fluent-option
+                >
+                <fluent-option value="en-US-AmandaMultilingualNeural"
+                  >Amanda</fluent-option
+                >
+                <fluent-option value="en-US-AndrewMultilingualNeural"
+                  >Andrew</fluent-option
+                >
+              </fluent-select>
+            </div>
+          </div>
+
+          <button id="playVideo" onclick="window.startSession()">
+            <span id="playVideo__text" class="playVideo__text">Login</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Footer for mic status -->
+    <div
+      id="micStatusFooter"
+      style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #f8f8f8;
+        border-top: 1px solid #ccc;
+        padding: 8px 0;
+        text-align: center;
+        z-index: 10002;
+        font-size: 15px;
+        color: #333;
+      "
+    ></div>
+  </body>
+</html>
